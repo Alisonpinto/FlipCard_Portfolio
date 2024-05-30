@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body,html{
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-color: aquamarine;
+}
+
+.wrapper{
+    height: 400px;
+    width: 320px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 20px;
+    transform: rotateY(0deg);
+    padding: 5px;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    backface-visibility: hidden;
+    .wrapper:hover .front-face
+        transform: rotateY(180deg);
+    .wrapper:hover .back-face 
+        transform: rotateY(0deg);
+}
+
+.wrapper:hover > .fornt-face{
+    transform: rotateY(-180deg);
+}
+
+
+.wrapper .card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.wrapper .back-face{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transform: rotateY(180deg);
+
+}
+
+.wrapper:hover >.back-face{
+    transform: rotateY(0deg);
+}
+
+.wrapper .back-face img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: aquamarine;
+}
+
+.wrapper .back-face .info{
+    text-align: center;
+}
+
+.wrapper .back-face .title{
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.back-face ul{
+    display: flex;
+}
+
+.back-face ul a{
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: aquamarine;
+    text-align: center;
+    border: 2px solid transparent;
+    line-height: 38px;
+    margin:0 5px;
+    border-radius: 50%;
+    color: blue;
+}
+
+.back-face ul a:hover{
+    background-color: blue;
+    color: aquamarine;
+
+}
